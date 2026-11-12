@@ -1,14 +1,23 @@
+
 import java.util.Scanner;
 
 public class Task1 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Enter an integer: ");
-        int n = input.nextInt();
+        int p = input.nextInt(); // Laptop price
+        int s = input.nextInt(); // Current savings
+        int m = input.nextInt(); // Weekly savings
 
-        for (int i = 1; i <= 10; i++) {
-            System.out.println(n + " x " + i + " = " + (n * i));
+        int k = 0;
+
+        while (s < p) {
+            s += m;
+            k++;
         }
+
+        System.out.println("k = " + k);
+
+        input.close();
     }
 }

@@ -1,18 +1,30 @@
+
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Task3 {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+    public static void main(String[] args) throws FileNotFoundException {
 
-        System.out.print("Enter a number (0-12): ");
+        Scanner input = new Scanner(new File("data.txt"));
+
         int n = input.nextInt();
+        int count = 0;
 
-        int factorial = 1;
+        for (int i = 0; i < n; i++) {
+            int temperature = input.nextInt();
 
-        for (int i = 1; i <= n; i++) {
-            factorial = factorial * i;
+            if (temperature < 0) {
+                count++;
+            }
         }
 
-        System.out.println("Factorial: " + factorial);
+        if (count == 0) {
+            System.out.println("No negative temperatures recorded");
+        } else {
+            System.out.println(count);
+        }
+
+        input.close();
     }
 }

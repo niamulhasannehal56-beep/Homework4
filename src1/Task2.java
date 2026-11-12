@@ -1,22 +1,30 @@
+
 import java.util.Scanner;
 
 public class Task2 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Enter a positive integer: ");
-        int n = input.nextInt();
+        int even = 0;
+        int odd = 0;
 
-        int count = 0;
+        while (true) {
+            int number = input.nextInt();
 
-        System.out.println("Even numbers:");
+            if (number == 0) {
+                break;
+            }
 
-        for (int i = 2; i <= n; i += 2) {
-            System.out.print(i + " ");
-            count++;
+            if (number % 2 == 0) {
+                even++;
+            } else {
+                odd++;
+            }
         }
 
-        System.out.println();
-        System.out.println("Count: " + count);
+        System.out.println("Even numbers: " + even);
+        System.out.println("Odd numbers: " + odd);
+
+        input.close();
     }
 }

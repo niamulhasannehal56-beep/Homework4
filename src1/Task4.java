@@ -1,16 +1,30 @@
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class Task4 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
-        for (int tens = 1; tens <= 9; tens++) {
-            for (int ones = 1; ones <= 9; ones++) {
+        Scanner input = new Scanner(new File("duomenys.txt"));
 
-                int original = tens * 10 + ones;
-                int reversed = ones * 10 + tens;
+        int n = input.nextInt();
 
-                if (ones == 2 * tens && reversed - original == 36) {
-                    System.out.println("The number is: " + original);
-                }
+        int previous = input.nextInt();
+        int count = 0;
+
+        for (int i = 1; i < n; i++) {
+            int current = input.nextInt();
+
+            if (current < previous) {
+                count++;
             }
+
+            previous = current;
         }
+
+        System.out.println(count);
+
+        input.close();
     }
 }
